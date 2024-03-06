@@ -58,8 +58,8 @@
 </head>
 <body>
     <form class="form" action="index.php" method="POST">
-        Username: <input type="text" name="usernames"><br><br>
-        Password: <input type="password" name="pswd"><br><br>
+        Username: <input type="email" placeholder="Email/Username" name="usernames"><br><br>
+        Password: <input type="password" placeholder="Password" name="pswd"><br><br>
         <input type="submit" value="Login" name="login">
         <input type="submit" value="Sign Up" name="signup">
     </form>

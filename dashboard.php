@@ -17,6 +17,12 @@
         $fname = $row1["fname"];
     }
 ?>
+<?php
+    $sql3 = "SELECT * FROM mytable";
+
+    if($result_set = $connection->query($sql3)){
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,15 +51,31 @@
         #h1{
             padding: 20px;
         }
+        .table{
+            padding: 10px;
+        }
+        .table td,table th{
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
     <nav>
         <h1>Welcome <?php echo $fname; ?></h1>
         <ul>
-            <li><a href="">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
     <h1 id="h1">DAshBOard</h1>
+
+    <table class="table">
+        <tr><th>First Name</th><th>Last Name</th><th>Email</th></tr>
+        <?php
+                while($row = $result_set->fetch_array(MYSQLI_ASSOC)){
+                    echo "<tr>" . "<td>" . $row['fname'] . "</td>" . "<td>" . $row['lname'] . "</td>" . "<td>" . $row['mails'] . "</td>" . "</tr>";
+                }
+            }
+        ?>
+    </table>
 </body>
 </html>
